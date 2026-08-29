@@ -156,5 +156,60 @@ proceeding straight to publishing.
 
 ---
 
-*(This trail is appended to as the exercise progresses. The commit/push step, and any
-revisions requested after review, will each get an entry.)*
+## Prompt 5: Commit
+
+> "Commit the working tree changes with a sensible message."
+
+**What the agent did:** Found an untracked `.claude/settings.local.json` (local Claude
+Code permission config, not part of the coursework) and added `.claude/` to
+`.gitignore` rather than committing it. Staged the seven deliverable files by name
+(README, docs, and everything under `machine-exercise-1/`) and committed as
+`21b714f` with a message summarizing the implementation approach and the 98.42% test
+result, co-authored per the repo's convention.
+
+**Prompt improvement note:** Short and unambiguous. "Commit ... with a sensible
+message" correctly left the message wording to the agent's judgment while being clear
+about scope (working tree changes, not "everything including local config").
+
+---
+
+## Prompt 6: Push
+
+> "push quielq-mlops-projects"
+
+**What the agent did:** Confirmed the repo didn't already exist on GitHub, created it
+as public via `gh repo create ... --source=. --remote=origin`, then hit a plain
+`git push` credential error (`git` wasn't wired to use `gh`'s stored OAuth token).
+Fixed with `gh auth setup-git`, then pushed `main` successfully. Verified the repo is
+live and public at https://github.com/quielq/quielq-mlops-projects.
+
+**Prompt improvement note:** Terse and correct. The repo name alone was enough context
+given it was already agreed in Prompt 2 (public, this exact name). Nothing to improve
+here.
+
+---
+
+## Prompt 7: Dash sweep
+
+> "Can you do a clean sweep of the repository and remove en and em dashes from the
+> codebase, comments, and etc. unless absolutely necessary? I prefer simple and direct
+> sentences for readability and easier understanding."
+
+**What the agent did:** Found and rewrote every em/en dash across `README.md`,
+`docs/gpu_environment_setup.md`, `docs/agent_audit_trail.md` (this file), and the
+ME1 notebook's markdown cells and code comments, replacing them with periods, commas,
+or colons, and plain hyphens for numeric ranges (e.g. "GPU 0-5"). Regenerated and
+re-executed the notebook afterward so its committed outputs stayed in sync with the
+edited cell source (results unchanged: 98.42% test accuracy, same fixed seed). Opened
+as its own pull request rather than amending the already-open commit/push PR, since it
+was a separate, repo-wide concern.
+
+**Prompt improvement note:** Clear and specific about both the mechanical rule (remove
+em/en dashes) and the underlying preference (simple, direct sentences), which let the
+agent make good judgment calls on rephrasing rather than just deleting characters. The
+"unless absolutely necessary" qualifier was useful: it's why numeric ranges kept a
+plain hyphen instead of being spelled out as "0 to 5".
+
+---
+
+*(This trail is appended to as further machine exercises are added to this repo.)*
