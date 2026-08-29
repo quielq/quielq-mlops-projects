@@ -1,4 +1,4 @@
-# AI 231 — ML Operations: Machine Exercise Submissions
+# AI 231 ML Operations: Machine Exercise Submissions
 
 This repository holds my machine exercise (ME) submissions for **AI 231 (ML Operations)**.
 Each exercise lives in its own top-level folder, numbered in submission order.
@@ -7,13 +7,13 @@ Each exercise lives in its own top-level folder, numbered in submission order.
 
 | Exercise | Folder | What to check |
 |---|---|---|
-| ME1 — CNN from scratch with einops/einsum | [`machine-exercise-1/`](machine-exercise-1/) | Open [`machine-exercise-1/notebooks/me1_cnn_einops_mnist.ipynb`](machine-exercise-1/notebooks/me1_cnn_einops_mnist.ipynb) directly — it contains the model, training run, logs, test-set accuracy, and the 4x4 prediction grid, all in one place. |
+| ME1: CNN from scratch with einops/einsum | [`machine-exercise-1/`](machine-exercise-1/) | Open [`machine-exercise-1/notebooks/me1_cnn_einops_mnist.ipynb`](machine-exercise-1/notebooks/me1_cnn_einops_mnist.ipynb) directly. It contains the model, training run, logs, test-set accuracy, and the 4x4 prediction grid, all in one place. |
 
 Supporting material for ME1:
-- [`machine-exercise-1/logs/`](machine-exercise-1/logs/) — raw training/epoch logs saved outside the notebook, for traceability.
-- [`machine-exercise-1/figures/`](machine-exercise-1/figures/) — exported prediction grid image.
-- [`docs/gpu_environment_setup.md`](docs/gpu_environment_setup.md) — every terminal command run to set up the GPU/cluster environment for this exercise, with comments on why and when each was run.
-- [`docs/agent_audit_trail.md`](docs/agent_audit_trail.md) — an audit trail of how the coding agent (Claude Code) worked through this assignment, including the prompts used and notes on how to improve them.
+- [`machine-exercise-1/logs/`](machine-exercise-1/logs/): raw training/epoch logs saved outside the notebook, for traceability.
+- [`machine-exercise-1/figures/`](machine-exercise-1/figures/): exported prediction grid image.
+- [`docs/gpu_environment_setup.md`](docs/gpu_environment_setup.md): every terminal command run to set up the GPU/cluster environment for this exercise, with comments on why and when each was run.
+- [`docs/agent_audit_trail.md`](docs/agent_audit_trail.md): an audit trail of how the coding agent (Claude Code) worked through this assignment, including the prompts used and notes on how to improve them.
 
 ## Repo conventions
 
