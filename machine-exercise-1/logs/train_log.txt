@@ -1,6 +1,6 @@
-Epoch 1/5 | train_loss=0.3426 | train_acc=89.58% | time=10.4s
+Epoch 1/5 | train_loss=0.3426 | train_acc=89.58% | time=9.9s
 Epoch 2/5 | train_loss=0.0902 | train_acc=97.25% | time=9.5s
 Epoch 3/5 | train_loss=0.0675 | train_acc=97.88% | time=9.4s
-Epoch 4/5 | train_loss=0.0557 | train_acc=98.28% | time=9.6s
-Epoch 5/5 | train_loss=0.0486 | train_acc=98.47% | time=9.3s
+Epoch 4/5 | train_loss=0.0557 | train_acc=98.28% | time=9.3s
+Epoch 5/5 | train_loss=0.0486 | train_acc=98.47% | time=9.4s
 TEST SET accuracy (held out, never used in training): 98.42% (9842/10000)

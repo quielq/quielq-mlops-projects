@@ -1,4 +1,4 @@
-# GPU / Cluster Environment Setup Log — AI 231 ME1
+# GPU / Cluster Environment Setup Log: AI 231 ME1
 
 This file records every terminal command the coding agent (Claude Code) ran to set up
 the environment on the UP COE HPC cluster (DGX-class node `ai-n002.hpc.coe.upd.edu.ph`,
@@ -11,11 +11,11 @@ purpose, in the order they were actually run, with a comment on **why** and **wh
 ```bash
 nvidia-smi
 ```
-**Why:** First step required by the assignment — confirm A100s are visible and see how
+**Why:** First step required by the assignment. Confirm A100s are visible and see how
 many are free before committing to training on this node.
 **When:** Very first command of the session, before anything else.
-**Result:** 8x A100-SXM4-40GB. GPUs 0–5 were completely idle (0% util, 0 MiB used).
-GPUs 6–7 were ~37–40% utilized by another user's job (~10.4 GB each), so those two were
+**Result:** 8x A100-SXM4-40GB. GPUs 0-5 were completely idle (0% util, 0 MiB used).
+GPUs 6-7 were ~37-40% utilized by another user's job (~10.4 GB each), so those two were
 avoided.
 
 ## 2. Orient in the filesystem
@@ -40,7 +40,7 @@ python3 -c "import torch; print(torch.__version__, torch.cuda.is_available())"
 python3 -c "import einops; print(einops.__version__)"
 python3 -c "import jupyter; print('jupyter ok')"
 ```
-**Why:** Avoid assuming tools exist — `gh` turned out to be missing entirely, and the
+**Why:** Avoid assuming tools exist. `gh` turned out to be missing entirely, and the
 system Python had none of `torch`/`einops`/`jupyter` installed.
 **When:** Right after orienting in the filesystem, before any installs.
 **Result:** `gh` not found; system `python3` had no ML packages; `git` was present.
@@ -55,14 +55,14 @@ module avail
 which sbatch srun squeue
 ```
 **Why:** The other user's GPU processes were running under a `.conda/envs/rmr` path,
-which suggested conda might be available. It wasn't, for this user — so a plain `venv`
+which suggested conda might be available. It wasn't, for this user, so a plain `venv`
 was used instead. Also checked whether the cluster requires SLURM job submission
 instead of running directly on the node.
 **When:** After discovering no ML packages were installed, before deciding on an
 environment strategy.
 **Result:** No conda for this user. SLURM (`sbatch`/`srun`/`squeue`) is available, but
 since the agent already has a live shell on a GPU compute node with free A100s, training
-was run directly on the node rather than queued — confirmed with the user first.
+was run directly on the node rather than queued. This was confirmed with the user first.
 
 ## 5. Check internet access and disk space for package installs
 
@@ -103,7 +103,7 @@ python -m pip install --upgrade pip -q
 ```
 **Why:** Isolate ME1's Python dependencies (`torch`, `einops`, `jupyter`, `matplotlib`)
 from the system Python, following the same `venv` workflow taught in the course's
-"Deep Learning Toolkit" lecture (`0_Toolkit.pdf`, slides 23–26), since conda was not
+"Deep Learning Toolkit" lecture (`0_Toolkit.pdf`, slides 23-26), since conda was not
 available for this user.
 **When:** In parallel with the `gh` install, since neither depends on the other.
 
@@ -112,7 +112,7 @@ available for this user.
 ```bash
 gh auth login --hostname github.com --git-protocol https --scopes repo
 ```
-**Why:** Non-interactive session, so a normal `gh auth login` menu wouldn't work — the
+**Why:** Non-interactive session, so a normal `gh auth login` menu wouldn't work. The
 device-flow mode (prints a one-time code + URL) does work without a TTY, as long as a
 human completes the code entry in their own browser. Run in the background so the user
 could complete the browser step while other setup continued.
@@ -152,8 +152,8 @@ source .venv/bin/activate
 pip install -q torch einops jupyter matplotlib numpy ipykernel
 python -c "import torch, einops; print(torch.__version__, torch.cuda.is_available(), einops.__version__)"
 ```
-**Why:** These are exactly the libraries the exercise permits — PyTorch tensors, plus
-`einops`/`einsum` for the layer math — and `jupyter`/`matplotlib` to author and run the
+**Why:** These are exactly the libraries the exercise permits: PyTorch tensors, plus
+`einops`/`einsum` for the layer math, and `jupyter`/`matplotlib` to author and run the
 required notebook with visualizations.
 **When:** Run in the background immediately after git init, since it's a long download
 (PyTorch's CUDA-enabled wheel) that doesn't block other setup work.
