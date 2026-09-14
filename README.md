@@ -8,6 +8,7 @@ Each exercise lives in its own top-level folder, numbered in submission order.
 | Exercise | Folder | What to check |
 |---|---|---|
 | ME1: CNN from scratch with einops/einsum | [`machine-exercise-1/`](machine-exercise-1/) | Open [`machine-exercise-1/notebooks/me1_cnn_einops_mnist.ipynb`](machine-exercise-1/notebooks/me1_cnn_einops_mnist.ipynb) directly. It contains the model, training run, logs, test-set accuracy, and the 4x4 prediction grid, all in one place. |
+| ME2: Voice Command Model (VCM) | [`quielq-vcm`](https://github.com/quielq/quielq-vcm) (separate repo) | A tiny on-device spoken-intent classifier for a Raspberry Pi, with a real hardware build (mic, smart bulb/plug, TTS) rather than a notebook, so it lives in its own repo. Start with its [`README.md`](https://github.com/quielq/quielq-vcm/blob/master/README.md) and [`TESTING.md`](https://github.com/quielq/quielq-vcm/blob/master/TESTING.md). |
 
 Supporting material for ME1:
 - [`machine-exercise-1/logs/`](machine-exercise-1/logs/): raw training/epoch logs saved outside the notebook, for traceability.
@@ -17,7 +18,7 @@ Supporting material for ME1:
 
 ## Repo conventions
 
-- One folder per machine exercise: `machine-exercise-N/`.
+- One folder per machine exercise: `machine-exercise-N/`, except ME2, which is a full standalone hardware project and lives in its own repo (linked above) instead of a notebook folder.
 - Each exercise folder contains its own `notebooks/`, `logs/`, and `figures/` subfolders.
 - Notebooks are meant to be read top-to-bottom and are self-contained (imports, data loading, model, training, evaluation, visualization all included).
 - This repo was initialized and committed by an AI coding agent (Claude Code) working directly with the author on the University of the Philippines DGX HPC cluster. See the audit trail linked above for details.
